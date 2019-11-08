@@ -7,15 +7,15 @@
   
   <title>sourcetree install | Song Lujie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SourceTree 3.+ 版本跳过bitbucket注册方法首先下载并安装好git程序。 接着下载并执行SourceTreeSetup.exe，会进入登录或注册bitbucket的界面，我只是想用软件，并不想去注册账号。怎么办？请往下看。 关闭上述安装窗口，打开 %LocalAppData%\Atlassian目录，接着进入SourceTree目录，创建accounts.json文件，并修改a">
+  <meta name="description" content="SourceTree 3.+ 版本跳过bitbucket注册方法">
 <meta name="keywords" content="Song Lujie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sourcetree install">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;08&#x2F;sourcestree%20install&#x2F;index.html">
 <meta property="og:site_name" content="Song Lujie">
-<meta property="og:description" content="SourceTree 3.+ 版本跳过bitbucket注册方法首先下载并安装好git程序。 接着下载并执行SourceTreeSetup.exe，会进入登录或注册bitbucket的界面，我只是想用软件，并不想去注册账号。怎么办？请往下看。 关闭上述安装窗口，打开 %LocalAppData%\Atlassian目录，接着进入SourceTree目录，创建accounts.json文件，并修改a">
+<meta property="og:description" content="SourceTree 3.+ 版本跳过bitbucket注册方法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-08T09:11:55.078Z">
+<meta property="og:updated_time" content="2019-11-08T09:15:22.793Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Song Lujie" type="application/atom+xml">
@@ -93,7 +93,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="SourceTree-3-版本跳过bitbucket注册方法"><a href="#SourceTree-3-版本跳过bitbucket注册方法" class="headerlink" title="SourceTree 3.+ 版本跳过bitbucket注册方法"></a>SourceTree 3.+ 版本跳过bitbucket注册方法</h3><p>首先下载并安装好git程序。</p>
+        <h3 id="SourceTree-3-版本跳过bitbucket注册方法"><a href="#SourceTree-3-版本跳过bitbucket注册方法" class="headerlink" title="SourceTree 3.+ 版本跳过bitbucket注册方法"></a>SourceTree 3.+ 版本跳过bitbucket注册方法</h3><a id="more"></a>
+
+<p>首先下载并安装好git程序。</p>
 <p>接着下载并执行SourceTreeSetup.exe，会进入登录或注册bitbucket的界面，我只是想用软件，并不想去注册账号。怎么办？请往下看。</p>
 <p>关闭上述安装窗口，打开 %LocalAppData%\Atlassian目录，接着进入SourceTree目录，创建accounts.json文件，并修改accounts.json内容如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">"$id"</span>: <span class="string">"1"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"$type"</span>: <span class="string">"SourceTree.Api.Host.Identity.Model.IdentityAccount, SourceTree.Api.Host.Identity"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"Authenticate"</span>: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"HostInstance"</span>: &#123;</span><br><span class="line"></span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"2"</span>,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountInstance, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"Host"</span>: &#123;</span><br><span class="line"></span><br><span class="line">        <span class="attr">"$id"</span>: <span class="string">"3"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"$type"</span>: <span class="string">"SourceTree.Host.Atlassianaccount.AtlassianAccountHost, SourceTree.Host.AtlassianAccount"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"Id"</span>: <span class="string">"atlassian account"</span></span><br><span class="line"></span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"BaseUrl"</span>: <span class="string">"https://id.atlassian.com/"</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"Credentials"</span>: &#123;</span><br><span class="line"></span><br><span class="line">      <span class="attr">"$id"</span>: <span class="string">"4"</span>,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"$type"</span>: <span class="string">"SourceTree.Model.BasicAuthCredentials, SourceTree.Api.Account"</span>,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"Username"</span>: <span class="string">""</span>,</span><br><span class="line"></span><br><span class="line">      <span class="attr">"Email"</span>: <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"IsDefault"</span>: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
@@ -108,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/08/sourcestree%20install/" data-id="ck2pxaq270004p4jbfaxg9bb7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/08/sourcestree%20install/" data-id="ck2pxd3ww0005pkjb1ekqdy7r" class="article-share-link">Share</a>
       
       
     </footer>
