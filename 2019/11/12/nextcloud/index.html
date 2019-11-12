@@ -5,17 +5,20 @@
   
 
   
-  <title>Category: Technology | Song Lujie</title>
+  <title>nextcloud | Song Lujie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Song Lujie">
+  <meta name="description" content="docker 安装 nextcloud私有云及外网访问说明：NexCould是一款不错，也很漂亮的个人私有云网盘">
 <meta name="keywords" content="Song Lujie">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Song Lujie">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;Technology&#x2F;index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nextcloud">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;12&#x2F;nextcloud&#x2F;index.html">
 <meta property="og:site_name" content="Song Lujie">
-<meta property="og:description" content="Song Lujie">
+<meta property="og:description" content="docker 安装 nextcloud私有云及外网访问说明：NexCould是一款不错，也很漂亮的个人私有云网盘">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;cumtjie&#x2F;MyPicGo&#x2F;master&#x2F;img&#x2F;nextcloudStart.jpg">
+<meta property="og:updated_time" content="2019-11-12T12:16:23.815Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;cumtjie&#x2F;MyPicGo&#x2F;master&#x2F;img&#x2F;nextcloudStart.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Song Lujie" type="application/atom+xml">
   
@@ -66,40 +69,83 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/07/hello-world/" class="archive-article-date">
-  <time datetime="2019-11-07T09:13:20.498Z" itemprop="datePublished">Nov 7</time>
+        <section id="main"><article id="post-nextcloud" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/12/nextcloud/" class="article-date">
+  <time datetime="2019-11-12T11:36:06.000Z" itemprop="datePublished">2019-11-12</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/07/hello-world/">Hexo Start</a>
+    <h1 class="article-title" itemprop="name">
+      nextcloud
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="docker-安装-nextcloud私有云及外网访问"><a href="#docker-安装-nextcloud私有云及外网访问" class="headerlink" title="docker 安装 nextcloud私有云及外网访问"></a>docker 安装 nextcloud私有云及外网访问</h3><p>说明：<code>NexCould</code>是一款不错，也很漂亮的个人私有云网盘</p>
+<a id="more"></a>
 
+<ol>
+<li>安装docker在这不做过多说明，默认拉取NextCloud官方镜像</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nextcloud</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>启动nextcloud镜像</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name nextcloud -p 8080:80 -v /data/nextcloud:/var/www/html nextcloud:latest</span><br></pre></td></tr></table></figure>
+
+<p>将镜像内80端口映射到主机的8080端口（可根据自己需求设置），将容器内/var/www/html映射到本机/data/nextcloud文件夹，/var/www/html主要存储数据及nextcloud相关配置，建议映射出来待后续修改配置。</p>
+<ol start="3">
+<li><p>启动后打开页面，可设置管理员用户名和密码，数据库根据需求选择，使用人数较少可选择sqlite，不满足可自行安装MySQL。</p>
+<p><img src="https://raw.githubusercontent.com/cumtjie/MyPicGo/master/img/nextcloudStart.jpg" alt=""></p>
+<p>如果访问不成功，请查看防火墙端口设置</p>
+</li>
+</ol>
+<ol start="4">
+<li>外网访问方式</li>
+</ol>
+<p>（1）购买云服务自行搭建</p>
+<p>（2）本地搭建+内网穿透</p>
+<p>第一种方式自行百度，第二种方式可借助花生壳等方式进行内网穿透</p>
+<p>注意：使用花生壳进行内网穿透时，需要修改nextcloud配置文件，新增访问域名，不然无法访问该服务。</p>
+<p>对于普通安装的nextcloud，可直接在界面中加入该域名，对于使用docker方式安装的，打开 /config/config.php，找到 trusted_domains，新增当前域名到可信任</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'trusted_domains'</span> =&gt; array(</span><br><span class="line">        0 =&gt; <span class="string">'127.0.0.1'</span>,</span><br><span class="line">        1 =&gt; <span class="string">'你的域名'</span>,</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/12/nextcloud/" data-id="ck2vtltk50005vojb22601nbx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/08/Cmder/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Cmder使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
